@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xsi:schemaLocation="http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="knight" class="com.example.springinaction4.node1Spring之旅.charactor1简化开发.BraveKnight">
+    <constructor-arg ref="quest" />
+  </bean>
+
+  <bean id="quest" class="com.example.springinaction4.node1Spring之旅.charactor1简化开发.SlayDragonQuest">
+    <constructor-arg value="#{T(System).out}" />
+  </bean>
+
+  <!-- 声明bean -->
+  <bean id="minstrel" class="com.example.springinaction4.node1Spring之旅.charactor1简化开发.Minstrel">
+    <constructor-arg value="#{T(System).out}" />
+  </bean>
+
+  <!--
+  首先，需要把 Minstrel声明为一个bean，然后在<aop∶aspect>元素中引用该bean。
+  为了进一步定义切面，声明（使用<aop∶before>）在embarkonQuest（）方法执行前调用Minstrel的 singBeforeQuest（）方法。这种方式被称为前置通知（before advice）。
+  同时声明（使用<aop∶after>）在embarkOnQuest（）方法执行后调用singAfter Quest（）方法。这种方式被称为后置通知（after advice）。
+  在这两种方式中，pointcut-ref属性都引用了名字为embank的切入点。该切入点是在前边的<pointcut>元素中定义的，并配置expression属性来选择所应用的通知。表达式的语法采用的是AspectJ的切点表达式语言。
+   -->
+  <aop:config>
+    <aop:aspect ref="minstrel">
+      <!-- 切入点 -->
+      <aop:pointcut id="embark"
+          expression="execution(* *.embarkOnQuest(..))"/>
+
+      <!-- 前置通知 -->
+      <aop:before pointcut-ref="embark"
+          method="singBeforeQuest"/>
+
+      <!-- 后置通知 -->
+      <aop:after pointcut-ref="embark"
+          method="singAfterQuest"/>
+    </aop:aspect>
+  </aop:config>
+
+</beans>

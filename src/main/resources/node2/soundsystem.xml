@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:c="http://www.springframework.org/schema/c"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <context:component-scan base-package="com.example.springinaction4" />
+
+  <bean id="compact" class="com.example.springinaction4.node2装配bean.charactor1组件扫描.CompactDisc">
+  </bean>
+  <bean id="cDPlayer" class="com.example.springinaction4.node2装配bean.charactor2自动化装配.CDPlayer">
+    <constructor-arg ref="compact"></constructor-arg>
+  </bean>
+  <bean id="cDPlayer1" class="com.example.springinaction4.node2装配bean.charactor2自动化装配.CDPlayer" c:cd-ref="compact" c:_0-ref="compact">
+  </bean>
+
+
+</beans>
