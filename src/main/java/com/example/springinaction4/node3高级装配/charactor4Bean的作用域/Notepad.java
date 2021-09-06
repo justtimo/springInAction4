@@ -1,5 +1,6 @@
 package com.example.springinaction4.node3高级装配.charactor4Bean的作用域;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
@@ -42,7 +43,40 @@ class NotepadConfig{
  *
  * proxyMode属性解决了将会话或请求作用域的bean注入到单例bean中所遇到的问题
  */
-@Scope(value = "session",proxyMode = ScopedProxyMode.INTERFACES)
+@Component
+@Scope(value = "session",proxyMode = ScopedProxyMode.TARGET_CLASS)
 class ShoppingCart{
 
 }
+/**
+ * 描述proxyMode之前,我们先看看他解决什么样的问题
+ * 假设我们要将ShoppingCart bean注入到单例StoreService bean的Setter方法中
+ */
+@Component
+class StoreService{
+    @Autowired
+    public void setShoppingCart(ShoppingCart shoppingCart){
+
+    }
+}
+/**
+ * 因为StoreService是单例的bean,会在Spring应用上下文加载的时候创建.当他创建时,Spring会试图将ShoppingCart注入到setShoppingCart()中.
+ *      但是ShoppingCart是会话作用域的,此时并不存在,直到某个用户进入系统创建了会话之后,才会出现ShoppingCart实例
+ * 另外,系统中会有多个ShoppingCart,我们希望StoreService处理购物车功能时,使用的ShoppingCart恰好是当前会话对应的那个.
+ * Spring不会将实际的ShoppingCart bean注入到StoreService中,Spring会注入一个到ShoppingCart bean的代理.这个代理会暴露与ShoppingCart相同的
+ *      方法,所以StoreService会认为他就是一个购物车.但是当StoreService调用ShoppingCart的方法时,代理会对其进行懒解析并将调用委托给会话作用域内的
+ *      真正的ShoppingCart bean
+ * 现在再来看proxyMode属性,他被设置为INTERFACES,表名代理要实现ShoppingCart接口,并将调用委托给实现bean
+ * 如果ShoppingCart是接口而不是类,这是最理想的.但如果ShoppingCart是一个具体的类,Spring就无法创建基于接口的代理了,此时他会使用基于CGlib来生成基于
+ *      类的代理.所以,如果bean类型是具体类的话,我们要使用proxyMode = ScopedProxyMode.TARGET_CLASS
+ * 请求作用域的bean也有相同的装配问题,因此他也是使用作用于代理的方式进行注入
+ */
+
+
+
+
+
+
+
+
+

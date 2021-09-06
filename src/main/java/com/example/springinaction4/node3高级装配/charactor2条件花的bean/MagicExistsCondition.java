@@ -41,5 +41,28 @@ public class MagicExistsCondition implements Condition {
     Environment env = context.getEnvironment();
     return env.containsProperty("magic");
   }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
