@@ -7,9 +7,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
   <context:property-placeholder
-    location="com/example/springinaction4/node3高级装配/charactor5运行时值注入/app.properties" />
+    location="../../java/com/example/springinaction4/第一部分Spring核心/node3高级装配/charactor5运行时值注入/app.properties" />
 
-  <bean class="com.example.springinaction4.node3高级装配.charactor5运行时值注入.BlankDisc"
+  <bean class="com.example.springinaction4.第一部分Spring核心.node3高级装配.charactor5运行时值注入.BlankDisc"
     c:_0 = "${disc.title}"
     c:_1 = "${disc.artist}"/>
 

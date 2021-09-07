@@ -9,12 +9,12 @@
 
   <context:component-scan base-package="com.example.springinaction4" />
 
-  <bean id="compact" class="com.example.springinaction4.node2装配bean.charactor1组件扫描.CompactDisc">
+  <bean id="compact" class="com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor1组件扫描.CompactDisc">
   </bean>
-  <bean id="cDPlayer" class="com.example.springinaction4.node2装配bean.charactor2自动化装配.CDPlayer">
+  <bean id="cDPlayer" class="com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor2自动化装配.CDPlayer">
     <constructor-arg ref="compact"></constructor-arg>
   </bean>
-  <bean id="cDPlayer1" class="com.example.springinaction4.node2装配bean.charactor2自动化装配.CDPlayer" c:cd-ref="compact" c:_0-ref="compact">
+  <bean id="cDPlayer1" class="com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor2自动化装配.CDPlayer" c:cd-ref="compact" c:_0-ref="compact">
   </bean>
 
 

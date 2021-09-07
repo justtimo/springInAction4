@@ -1,7 +1,7 @@
 package com.example.springinaction4.node2;
 
-import com.example.springinaction4.node2装配bean.charactor1组件扫描.CompactDisc;
-import com.example.springinaction4.node2装配bean.charactor1组件扫描.config.CDPlayerConfig;
+import com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor1组件扫描.CompactDisc;
+import com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor1组件扫描.config.CDPlayerConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

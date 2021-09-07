@@ -5,7 +5,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="compactDisc" class="com.example.springinaction4.node2装配bean.charactor4通过XML装配bean.collections.BlankDisc">
+  <bean id="compactDisc" class="com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor4通过XML装配bean.collections.BlankDisc">
     <constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band" />
     <constructor-arg value="The Beatles" />
     <constructor-arg>
@@ -27,7 +27,7 @@
     </constructor-arg>
   </bean>
 
-  <bean id="cdPlayer" class="com.example.springinaction4.node2装配bean.charactor2自动化装配.CDPlayer" p:cd-ref="compactDisc">
+  <bean id="cdPlayer" class="com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor2自动化装配.CDPlayer" p:cd-ref="compactDisc">
     <constructor-arg ref="compactDisc" />
     <property name="cddd " ref="compactDisc"></property>
   </bean>

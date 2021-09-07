@@ -7,16 +7,16 @@
 		http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-  <bean id="knight" class="com.example.springinaction4.node1Spring之旅.charactor1简化开发.BraveKnight">
+  <bean id="knight" class="com.example.springinaction4.第一部分Spring核心.node1Spring之旅.charactor1简化开发.BraveKnight">
     <constructor-arg ref="quest" />
   </bean>
 
-  <bean id="quest" class="com.example.springinaction4.node1Spring之旅.charactor1简化开发.SlayDragonQuest">
+  <bean id="quest" class="com.example.springinaction4.第一部分Spring核心.node1Spring之旅.charactor1简化开发.SlayDragonQuest">
     <constructor-arg value="#{T(System).out}" />
   </bean>
 
   <!-- 声明bean -->
-  <bean id="minstrel" class="com.example.springinaction4.node1Spring之旅.charactor1简化开发.Minstrel">
+  <bean id="minstrel" class="com.example.springinaction4.第一部分Spring核心.node1Spring之旅.charactor1简化开发.Minstrel">
     <constructor-arg value="#{T(System).out}" />
   </bean>
 

@@ -6,7 +6,7 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
   <bean id="compactDisc"
-        class="com.example.springinaction4.node2装配bean.charactor4通过XML装配bean.BlankDisc"
+        class="com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor4通过XML装配bean.BlankDisc"
         c:title="hhahahahahahah"
         c:artist="xiao  si  wo  le "
         c:_0="又一次哈哈哈哈"
@@ -17,7 +17,7 @@
   </bean>
 
   <bean id="cdPlayer"
-        class="com.example.springinaction4.node2装配bean.charactor2自动化装配.CDPlayer">
+        class="com.example.springinaction4.第一部分Spring核心.node2装配bean.charactor2自动化装配.CDPlayer">
     <constructor-arg ref="compactDisc" />
   </bean>
 
